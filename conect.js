@@ -41,6 +41,8 @@ var node_postgres_1 = require("drizzle-orm/node-postgres");
 var pg_1 = require("pg");
 var schema = require("./drizzle/schema.js");
 var dotenv = require("dotenv");
+var schema_js_1 = require("./drizzle/schema.js");
+var drizzle_orm_1 = require("drizzle-orm");
 dotenv.config();
 var pool = new pg_1.Pool({
     connectionString: (_a = process.env.DB_URL) !== null && _a !== void 0 ? _a : "",
@@ -50,12 +52,20 @@ var data = function () { return __awaiter(void 0, void 0, void 0, function () {
     var hola;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, db.query.compradores.findMany({
-                    limit: 1
-                })];
+            case 0: return [4 /*yield*/, db.select({
+                    inventory2: schema_js_1.inventory2,
+                    imagen: schema_js_1.imagen2.imagenUrl
+                })
+                    .from(schema_js_1.inventory2)
+                    .rightJoin(schema_js_1.imagen2, (0, drizzle_orm_1.eq)(schema_js_1.inventory2.sku, schema_js_1.imagen2.sku))
+                    .orderBy((0, drizzle_orm_1.desc)(schema_js_1.inventory2.stock))
+                    .limit(2)];
             case 1:
                 hola = _a.sent();
                 console.log(hola);
+                return [4 /*yield*/, pool.end()];
+            case 2:
+                _a.sent();
                 return [2 /*return*/];
         }
     });

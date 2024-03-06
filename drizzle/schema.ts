@@ -1,5 +1,5 @@
 import { pgTable, foreignKey, serial, integer, varchar, numeric, date, text, doublePrecision, boolean, timestamp, bigint, unique, real } from "drizzle-orm/pg-core"
-import { sql } from "drizzle-orm"
+import { relations, sql } from "drizzle-orm"
 
 
 
@@ -180,6 +180,8 @@ export const imagen2 = pgTable("imagen2", {
 	sku: text("sku_").references(() => inventory2.sku),
 	imagenUrl: text("imagen_url"),
 });
+
+
 
 export const infoproveedor = pgTable("infoproveedor", {
 	id: serial("id").primaryKey().notNull(),
