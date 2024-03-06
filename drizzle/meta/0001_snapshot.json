@@ -1,0 +1,3491 @@
+{
+  "id": "99056a6f-de1e-4ea4-9874-880082bad171",
+  "prevId": "55232130-2731-4ad2-8778-2866f32f6675",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "compradores": {
+      "name": "compradores",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "usuario": {
+          "name": "usuario",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "compradores_usuario_key": {
+          "name": "compradores_usuario_key",
+          "nullsNotDistinct": false,
+          "columns": [
+            "usuario"
+          ]
+        }
+      }
+    },
+    "en_proceso": {
+      "name": "en_proceso",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "upc_proveedor": {
+          "name": "upc_proveedor",
+          "type": "varchar(14)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "título": {
+          "name": "título",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "precio": {
+          "name": "precio",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asignadof1": {
+          "name": "asignadof1",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fechaasignado": {
+          "name": "fechaasignado",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof1": {
+          "name": "revisadof1",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof2": {
+          "name": "revisadof2",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof3": {
+          "name": "revisadof3",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "emisión": {
+          "name": "emisión",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rechazado": {
+          "name": "rechazado",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comprado": {
+          "name": "comprado",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mostrar": {
+          "name": "mostrar",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "precio_de_walmart": {
+          "name": "precio_de_walmart",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "precio_amazon": {
+          "name": "precio_amazon",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "contrac_category": {
+          "name": "contrac_category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "competidores_walmart_wfs": {
+          "name": "competidores_walmart_wfs",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fullfiment_fee": {
+          "name": "fullfiment_fee",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "refereal_fee": {
+          "name": "refereal_fee",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neto_probable": {
+          "name": "neto_probable",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_proveedor": {
+          "name": "id_proveedor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmarid": {
+          "name": "walmarid",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asin": {
+          "name": "asin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packageheight": {
+          "name": "packageheight",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packagelength": {
+          "name": "packagelength",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packagewidth": {
+          "name": "packagewidth",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packageweight": {
+          "name": "packageweight",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notas": {
+          "name": "notas",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cantidad_comprar": {
+          "name": "cantidad_comprar",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hazmant": {
+          "name": "hazmant",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "apperel": {
+          "name": "apperel",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bestseller": {
+          "name": "bestseller",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "popularpick": {
+          "name": "popularpick",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "case_": {
+          "name": "case_",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number": {
+          "name": "item_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_f1": {
+          "name": "revision_f1",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "revision_f2": {
+          "name": "revision_f2",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_f3": {
+          "name": "revision_f3",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_emision": {
+          "name": "revision_emision",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asignadof2": {
+          "name": "asignadof2",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack": {
+          "name": "pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 1
+        },
+        "revision_inventario": {
+          "name": "revision_inventario",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "en_proceso_upc_proveedor_provider_upc_id_fk": {
+          "name": "en_proceso_upc_proveedor_provider_upc_id_fk",
+          "tableFrom": "en_proceso",
+          "tableTo": "provider_upc",
+          "columnsFrom": [
+            "upc_proveedor"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "en_proceso_id_proveedor_proveedores_id_fk": {
+          "name": "en_proceso_id_proveedor_proveedores_id_fk",
+          "tableFrom": "en_proceso",
+          "tableTo": "proveedores",
+          "columnsFrom": [
+            "id_proveedor"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "en_proceso_historial": {
+      "name": "en_proceso_historial",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "upc_proveedor": {
+          "name": "upc_proveedor",
+          "type": "varchar(14)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "título": {
+          "name": "título",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "precio": {
+          "name": "precio",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asignadof1": {
+          "name": "asignadof1",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fechaasignado": {
+          "name": "fechaasignado",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof1": {
+          "name": "revisadof1",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof2": {
+          "name": "revisadof2",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof3": {
+          "name": "revisadof3",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "emisión": {
+          "name": "emisión",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rechazado": {
+          "name": "rechazado",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comprado": {
+          "name": "comprado",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mostrar": {
+          "name": "mostrar",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "precio_de_walmart": {
+          "name": "precio_de_walmart",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "precio_amazon": {
+          "name": "precio_amazon",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "contrac_category": {
+          "name": "contrac_category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "competidores_walmart_wfs": {
+          "name": "competidores_walmart_wfs",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fullfiment_fee": {
+          "name": "fullfiment_fee",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "refereal_fee": {
+          "name": "refereal_fee",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neto_probable": {
+          "name": "neto_probable",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_proveedor": {
+          "name": "id_proveedor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmarid": {
+          "name": "walmarid",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asin": {
+          "name": "asin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packageheight": {
+          "name": "packageheight",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packagelength": {
+          "name": "packagelength",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packagewidth": {
+          "name": "packagewidth",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packageweight": {
+          "name": "packageweight",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notas": {
+          "name": "notas",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cantidad_comprar": {
+          "name": "cantidad_comprar",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hazmant": {
+          "name": "hazmant",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "apperel": {
+          "name": "apperel",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bestseller": {
+          "name": "bestseller",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "popularpick": {
+          "name": "popularpick",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "case_": {
+          "name": "case_",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number": {
+          "name": "item_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "number_pio": {
+          "name": "number_pio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_f1": {
+          "name": "revision_f1",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "revision_f2": {
+          "name": "revision_f2",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_f3": {
+          "name": "revision_f3",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_emision": {
+          "name": "revision_emision",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asignadof2": {
+          "name": "asignadof2",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack": {
+          "name": "pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_inventario": {
+          "name": "revision_inventario",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "en_proceso_historial_upc_proveedor_provider_upc_id_fk": {
+          "name": "en_proceso_historial_upc_proveedor_provider_upc_id_fk",
+          "tableFrom": "en_proceso_historial",
+          "tableTo": "provider_upc",
+          "columnsFrom": [
+            "upc_proveedor"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "en_proceso_historial_id_proveedor_proveedores_id_fk": {
+          "name": "en_proceso_historial_id_proveedor_proveedores_id_fk",
+          "tableFrom": "en_proceso_historial",
+          "tableTo": "proveedores",
+          "columnsFrom": [
+            "id_proveedor"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "f1": {
+      "name": "f1",
+      "schema": "",
+      "columns": {
+        "id_": {
+          "name": "id_",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "id_usuario": {
+          "name": "id_usuario",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_pricelist": {
+          "name": "id_pricelist",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "distribuidor": {
+          "name": "distribuidor",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_rentabilidad": {
+          "name": "link_rentabilidad",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "producto_link_walmart": {
+          "name": "producto_link_walmart",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_amazon": {
+          "name": "link_amazon",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc": {
+          "name": "upc",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_listing": {
+          "name": "upc_listing",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_id": {
+          "name": "walmart_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack": {
+          "name": "pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack_price": {
+          "name": "pack_price",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number": {
+          "name": "item_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "buy_box_price": {
+          "name": "buy_box_price",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_gros_fees": {
+          "name": "total_gros_fees",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category": {
+          "name": "category",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hazmat": {
+          "name": "hazmat",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "weight": {
+          "name": "weight",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "length_": {
+          "name": "length_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "width": {
+          "name": "width",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height": {
+          "name": "height",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lb": {
+          "name": "lb",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unit_net": {
+          "name": "unit_net",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "roi": {
+          "name": "roi",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "margin": {
+          "name": "margin",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "net_porcentaje": {
+          "name": "net_porcentaje",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_sales_data_spark": {
+          "name": "walmart_sales_data_spark",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amazon_sales": {
+          "name": "amazon_sales",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviews_totales": {
+          "name": "reviews_totales",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "competitive_wfs_sellers": {
+          "name": "competitive_wfs_sellers",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval": {
+          "name": "approval",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "disapproval": {
+          "name": "disapproval",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fulfillment_fee": {
+          "name": "fulfillment_fee",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "referral_fee": {
+          "name": "referral_fee",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cost_": {
+          "name": "cost_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "monthly_store": {
+          "name": "monthly_store",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha": {
+          "name": "fecha",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "f1_id_usuario_compradores_id_fk": {
+          "name": "f1_id_usuario_compradores_id_fk",
+          "tableFrom": "f1",
+          "tableTo": "compradores",
+          "columnsFrom": [
+            "id_usuario"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "f1_id_pricelist_compradores_id_fk": {
+          "name": "f1_id_pricelist_compradores_id_fk",
+          "tableFrom": "f1",
+          "tableTo": "compradores",
+          "columnsFrom": [
+            "id_pricelist"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "f2": {
+      "name": "f2",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "id_f1": {
+          "name": "id_f1",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_usuario": {
+          "name": "id_usuario",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "producto_link_walmart": {
+          "name": "producto_link_walmart",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_amazon": {
+          "name": "link_amazon",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_dist": {
+          "name": "upc_dist",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_id": {
+          "name": "walmart_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack": {
+          "name": "pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number": {
+          "name": "item_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "buy_box_price": {
+          "name": "buy_box_price",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack_price": {
+          "name": "pack_price",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cost_": {
+          "name": "cost_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cost_fees": {
+          "name": "cost_fees",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category": {
+          "name": "category",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_cost": {
+          "name": "total_cost",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_sales": {
+          "name": "total_sales",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "net": {
+          "name": "net",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unit_net": {
+          "name": "unit_net",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "roi": {
+          "name": "roi",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "margin": {
+          "name": "margin",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "net_porcentaje": {
+          "name": "net_porcentaje",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount": {
+          "name": "discount",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount_porcentaje": {
+          "name": "discount_porcentaje",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount_pack_price": {
+          "name": "discount_pack_price",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_sales_helium": {
+          "name": "walmart_sales_helium",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_sales_dataspark": {
+          "name": "walmart_sales_dataspark",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviews": {
+          "name": "reviews",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "competitive_wfs_sellers": {
+          "name": "competitive_wfs_sellers",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amazon_sales_asinzen": {
+          "name": "amazon_sales_asinzen",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amazon_sales_keppa": {
+          "name": "amazon_sales_keppa",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "buy_box_amazon": {
+          "name": "buy_box_amazon",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sales_to_buy": {
+          "name": "sales_to_buy",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_to_buy": {
+          "name": "units_to_buy",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "buybox_porcentaje": {
+          "name": "buybox_porcentaje",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_days": {
+          "name": "stock_days",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_checker": {
+          "name": "stock_checker",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "time_months": {
+          "name": "time_months",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sales_months": {
+          "name": "sales_months",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comments_": {
+          "name": "comments_",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notas_filtro_1": {
+          "name": "notas_filtro_1",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nota_compras_filtro_2": {
+          "name": "nota_compras_filtro_2",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval": {
+          "name": "approval",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "disapproval": {
+          "name": "disapproval",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lb": {
+          "name": "lb",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fulfillment_fee": {
+          "name": "fulfillment_fee",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "referral_fee": {
+          "name": "referral_fee",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cost_aux": {
+          "name": "cost_aux",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "monthly_store": {
+          "name": "monthly_store",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "case_pack": {
+          "name": "case_pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_listing": {
+          "name": "upc_listing",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha": {
+          "name": "fecha",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "supplier": {
+          "name": "supplier",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description_product": {
+          "name": "description_product",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "weight": {
+          "name": "weight",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "length_": {
+          "name": "length_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "width": {
+          "name": "width",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height": {
+          "name": "height",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_unico": {
+          "name": "id_unico",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hazmat": {
+          "name": "hazmat",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "f2_id_f1_f1_id__fk": {
+          "name": "f2_id_f1_f1_id__fk",
+          "tableFrom": "f2",
+          "tableTo": "f1",
+          "columnsFrom": [
+            "id_f1"
+          ],
+          "columnsTo": [
+            "id_"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "f2_id_usuario_compradores_id_fk": {
+          "name": "f2_id_usuario_compradores_id_fk",
+          "tableFrom": "f2",
+          "tableTo": "compradores",
+          "columnsFrom": [
+            "id_usuario"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "f3": {
+      "name": "f3",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "id_f2": {
+          "name": "id_f2",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_usuario": {
+          "name": "id_usuario",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "supplier": {
+          "name": "supplier",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "producto_link_walmart": {
+          "name": "producto_link_walmart",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_amazon": {
+          "name": "link_amazon",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_id": {
+          "name": "walmart_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack": {
+          "name": "pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number": {
+          "name": "item_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_dist": {
+          "name": "upc_dist",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "buy_box_price": {
+          "name": "buy_box_price",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unit_cost": {
+          "name": "unit_cost",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_cost_walmart_fees": {
+          "name": "total_cost_walmart_fees",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category": {
+          "name": "category",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "apply_discount": {
+          "name": "apply_discount",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_cost": {
+          "name": "total_cost",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_sales": {
+          "name": "total_sales",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unit_discount": {
+          "name": "unit_discount",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount_pack_price": {
+          "name": "discount_pack_price",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "net": {
+          "name": "net",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unit_net": {
+          "name": "unit_net",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "roi": {
+          "name": "roi",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "margin": {
+          "name": "margin",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "net_porcentaje": {
+          "name": "net_porcentaje",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount_porcentaje": {
+          "name": "discount_porcentaje",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_sales_helium": {
+          "name": "walmart_sales_helium",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "walmart_sales_data_spark": {
+          "name": "walmart_sales_data_spark",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviews": {
+          "name": "reviews",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "competitive_wfs_sellers": {
+          "name": "competitive_wfs_sellers",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amazon_sales_asinzen": {
+          "name": "amazon_sales_asinzen",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amazon_sales_keppa": {
+          "name": "amazon_sales_keppa",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "buy_box_amazon": {
+          "name": "buy_box_amazon",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_to_buy": {
+          "name": "units_to_buy",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sales_to_buy": {
+          "name": "sales_to_buy",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "buybox_porcentaje": {
+          "name": "buybox_porcentaje",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_days": {
+          "name": "stock_days",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_checker_ventas": {
+          "name": "stock_checker_ventas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "time_months": {
+          "name": "time_months",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sales_months": {
+          "name": "sales_months",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comments_": {
+          "name": "comments_",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nota_compras": {
+          "name": "nota_compras",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nota_compras_f2": {
+          "name": "nota_compras_f2",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notas": {
+          "name": "notas",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval": {
+          "name": "approval",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "disapproval": {
+          "name": "disapproval",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lb": {
+          "name": "lb",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hazmat": {
+          "name": "hazmat",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fulfillment_fee": {
+          "name": "fulfillment_fee",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "referral_fee": {
+          "name": "referral_fee",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cost_": {
+          "name": "cost_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "monthly_store": {
+          "name": "monthly_store",
+          "type": "numeric(5, 5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "case_pack": {
+          "name": "case_pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_listing": {
+          "name": "upc_listing",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description_product": {
+          "name": "description_product",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lb_filtro_1": {
+          "name": "lb_filtro_1",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "length_": {
+          "name": "length_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "width_": {
+          "name": "width_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height_": {
+          "name": "height_",
+          "type": "numeric(3, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp_aproval": {
+          "name": "timestamp_aproval",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_asin": {
+          "name": "id_asin",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_item_number": {
+          "name": "id_item_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "responsable_f1": {
+          "name": "responsable_f1",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "inventario": {
+          "name": "inventario",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "f3_id_f2_f2_id_fk": {
+          "name": "f3_id_f2_f2_id_fk",
+          "tableFrom": "f3",
+          "tableTo": "f2",
+          "columnsFrom": [
+            "id_f2"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "f3_id_usuario_compradores_id_fk": {
+          "name": "f3_id_usuario_compradores_id_fk",
+          "tableFrom": "f3",
+          "tableTo": "compradores",
+          "columnsFrom": [
+            "id_usuario"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "F_Table": {
+      "name": "F_Table",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "fulfilment_fee": {
+          "name": "fulfilment_fee",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "referal_feed": {
+          "name": "referal_feed",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sku_": {
+          "name": "sku_",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "F_Table_sku__inventory2_sku_fk": {
+          "name": "F_Table_sku__inventory2_sku_fk",
+          "tableFrom": "F_Table",
+          "tableTo": "inventory2",
+          "columnsFrom": [
+            "sku_"
+          ],
+          "columnsTo": [
+            "sku"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "F_Table_sku__key": {
+          "name": "F_Table_sku__key",
+          "nullsNotDistinct": false,
+          "columns": [
+            "sku_"
+          ]
+        }
+      }
+    },
+    "imagen2": {
+      "name": "imagen2",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "sku_": {
+          "name": "sku_",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "imagen_url": {
+          "name": "imagen_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "imagen2_sku__inventory2_sku_fk": {
+          "name": "imagen2_sku__inventory2_sku_fk",
+          "tableFrom": "imagen2",
+          "tableTo": "inventory2",
+          "columnsFrom": [
+            "sku_"
+          ],
+          "columnsTo": [
+            "sku"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "infoproveedor": {
+      "name": "infoproveedor",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "proveedor": {
+          "name": "proveedor",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "street_address": {
+          "name": "street_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "responsable": {
+          "name": "responsable",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "city": {
+          "name": "city",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone": {
+          "name": "phone",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mail": {
+          "name": "mail",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "idproveedor": {
+          "name": "idproveedor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "infoproveedor_idproveedor_proveedores_id_fk": {
+          "name": "infoproveedor_idproveedor_proveedores_id_fk",
+          "tableFrom": "infoproveedor",
+          "tableTo": "proveedores",
+          "columnsFrom": [
+            "idproveedor"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "inventory2": {
+      "name": "inventory2",
+      "schema": "",
+      "columns": {
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_supplier": {
+          "name": "upc_supplier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gtin": {
+          "name": "gtin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sku": {
+          "name": "sku",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack": {
+          "name": "pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number_supplier": {
+          "name": "item_number_supplier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs": {
+          "name": "cogs",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs_in_pack": {
+          "name": "cogs_in_pack",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "outbound_shipping_weight": {
+          "name": "outbound_shipping_weight",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "weight_lb": {
+          "name": "weight_lb",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_confirm": {
+          "name": "units_confirm",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_in_wh": {
+          "name": "units_in_wh",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_in_transit": {
+          "name": "units_in_transit",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_to_charge": {
+          "name": "units_to_charge",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_in_wm": {
+          "name": "units_in_wm",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packs_in_wm": {
+          "name": "packs_in_wm",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_returned": {
+          "name": "units_returned",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_damaged": {
+          "name": "units_damaged",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_": {
+          "name": "link_",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_amazon": {
+          "name": "link_amazon",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "categoria": {
+          "name": "categoria",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "length_in": {
+          "name": "length_in",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "width_in": {
+          "name": "width_in",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height_in": {
+          "name": "height_in",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_cost_fees": {
+          "name": "total_cost_fees",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "est_commission": {
+          "name": "est_commission",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs_fee": {
+          "name": "cogs_fee",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hazmat": {
+          "name": "hazmat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "oh_x_product": {
+          "name": "oh_x_product",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock": {
+          "name": "stock",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_values": {
+          "name": "stock_values",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "brand": {
+          "name": "brand",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "inventory2_his": {
+      "name": "inventory2_his",
+      "schema": "",
+      "columns": {
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_supplier": {
+          "name": "upc_supplier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gtin": {
+          "name": "gtin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sku": {
+          "name": "sku",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pack": {
+          "name": "pack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number_supplier": {
+          "name": "item_number_supplier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs": {
+          "name": "cogs",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs_in_pack": {
+          "name": "cogs_in_pack",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "outbound_shipping_weight": {
+          "name": "outbound_shipping_weight",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "weight_lb": {
+          "name": "weight_lb",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_confirm": {
+          "name": "units_confirm",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_in_wh": {
+          "name": "units_in_wh",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_in_transit": {
+          "name": "units_in_transit",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_to_charge": {
+          "name": "units_to_charge",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_in_wm": {
+          "name": "units_in_wm",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "packs_in_wm": {
+          "name": "packs_in_wm",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_returned": {
+          "name": "units_returned",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "units_damaged": {
+          "name": "units_damaged",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_": {
+          "name": "link_",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_amazon": {
+          "name": "link_amazon",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "categoria": {
+          "name": "categoria",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "length_in": {
+          "name": "length_in",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "width_in": {
+          "name": "width_in",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height_in": {
+          "name": "height_in",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_cost_fees": {
+          "name": "total_cost_fees",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "est_commission": {
+          "name": "est_commission",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs_fee": {
+          "name": "cogs_fee",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hazmat": {
+          "name": "hazmat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "oh_x_product": {
+          "name": "oh_x_product",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock": {
+          "name": "stock",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_values": {
+          "name": "stock_values",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_modificacion": {
+          "name": "fecha_modificacion",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "order_sales_2": {
+      "name": "order_sales_2",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "orden_sales_id": {
+          "name": "orden_sales_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gtim": {
+          "name": "gtim",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sku": {
+          "name": "sku",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "wmt_id": {
+          "name": "wmt_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "items_name": {
+          "name": "items_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gmv": {
+          "name": "gmv",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "order_status": {
+          "name": "order_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shipped_date": {
+          "name": "shipped_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shipped_from": {
+          "name": "shipped_from",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ship_to_city": {
+          "name": "ship_to_city",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ship_to_state": {
+          "name": "ship_to_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ship_to_zip": {
+          "name": "ship_to_zip",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "purchase_order_num": {
+          "name": "purchase_order_num",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neto": {
+          "name": "neto",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs": {
+          "name": "cogs",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fees": {
+          "name": "fees",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_sql": {
+          "name": "fecha_sql",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "full_feed": {
+          "name": "full_feed",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "referal_feed": {
+          "name": "referal_feed",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "order_sales_2_sku_inventory2_sku_fk": {
+          "name": "order_sales_2_sku_inventory2_sku_fk",
+          "tableFrom": "order_sales_2",
+          "tableTo": "inventory2",
+          "columnsFrom": [
+            "sku"
+          ],
+          "columnsTo": [
+            "sku"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "pricelist_asiganacion_f1": {
+      "name": "pricelist_asiganacion_f1",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "id_pricelist_pagina": {
+          "name": "id_pricelist_pagina",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "pricelist_asiganacion_f1_id_pricelist_pagina_pricelist_pagina_id_fk": {
+          "name": "pricelist_asiganacion_f1_id_pricelist_pagina_pricelist_pagina_id_fk",
+          "tableFrom": "pricelist_asiganacion_f1",
+          "tableTo": "pricelist_pagina",
+          "columnsFrom": [
+            "id_pricelist_pagina"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "pricelist_pagina": {
+      "name": "pricelist_pagina",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "upc_proveedor": {
+          "name": "upc_proveedor",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "título": {
+          "name": "título",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "precio": {
+          "name": "precio",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asignadof1": {
+          "name": "asignadof1",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fechaasignado": {
+          "name": "fechaasignado",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof1": {
+          "name": "revisadof1",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof2": {
+          "name": "revisadof2",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof3": {
+          "name": "revisadof3",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "emisión": {
+          "name": "emisión",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rechazado": {
+          "name": "rechazado",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comprado": {
+          "name": "comprado",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_f1": {
+          "name": "revision_f1",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_f2": {
+          "name": "revision_f2",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_f3": {
+          "name": "revision_f3",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revision_emision": {
+          "name": "revision_emision",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_proveedor": {
+          "name": "id_proveedor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "inventario": {
+          "name": "inventario",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "case_": {
+          "name": "case_",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_number": {
+          "name": "item_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asignadof2": {
+          "name": "asignadof2",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "pricelist_pagina_upc_proveedor_provider_upc_id_fk": {
+          "name": "pricelist_pagina_upc_proveedor_provider_upc_id_fk",
+          "tableFrom": "pricelist_pagina",
+          "tableTo": "provider_upc",
+          "columnsFrom": [
+            "upc_proveedor"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "pricelist_pagina_id_proveedor_proveedores_id_fk": {
+          "name": "pricelist_pagina_id_proveedor_proveedores_id_fk",
+          "tableFrom": "pricelist_pagina",
+          "tableTo": "proveedores",
+          "columnsFrom": [
+            "id_proveedor"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "_prisma_migrations": {
+      "name": "_prisma_migrations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(36)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "checksum": {
+          "name": "checksum",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "finished_at": {
+          "name": "finished_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "migration_name": {
+          "name": "migration_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "logs": {
+          "name": "logs",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rolled_back_at": {
+          "name": "rolled_back_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "started_at": {
+          "name": "started_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "applied_steps_count": {
+          "name": "applied_steps_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "product_package": {
+      "name": "product_package",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "id_provider_upc": {
+          "name": "id_provider_upc",
+          "type": "varchar(14)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "asin": {
+          "name": "asin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "height": {
+          "name": "height",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "length": {
+          "name": "length",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "width": {
+          "name": "width",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weight": {
+          "name": "weight",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "size": {
+          "name": "size",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp": {
+          "name": "timestamp",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "product_package_id_provider_upc_provider_upc_id_fk": {
+          "name": "product_package_id_provider_upc_provider_upc_id_fk",
+          "tableFrom": "product_package",
+          "tableTo": "provider_upc",
+          "columnsFrom": [
+            "id_provider_upc"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "proveedores": {
+      "name": "proveedores",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "descuento": {
+          "name": "descuento",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "provider_upc": {
+      "name": "provider_upc",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(14)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "ean": {
+          "name": "ean",
+          "type": "varchar(14)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc": {
+          "name": "upc",
+          "type": "varchar(14)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "product": {
+          "name": "product",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "brand": {
+          "name": "brand",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category": {
+          "name": "category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status_code": {
+          "name": "status_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp": {
+          "name": "timestamp",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "gtin": {
+          "name": "gtin",
+          "type": "varchar(14)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "refound_returns_2": {
+      "name": "refound_returns_2",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "produc_name": {
+          "name": "produc_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "return_reason": {
+          "name": "return_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "return_date": {
+          "name": "return_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "current_satatus": {
+          "name": "current_satatus",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unit": {
+          "name": "unit",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "po": {
+          "name": "po",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "po_line": {
+          "name": "po_line",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rma": {
+          "name": "rma",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "return_orden_line": {
+          "name": "return_orden_line",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fault": {
+          "name": "fault",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "delivered_date": {
+          "name": "delivered_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "received_scan_date": {
+          "name": "received_scan_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "disposition": {
+          "name": "disposition",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_condition": {
+          "name": "item_condition",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upc_": {
+          "name": "upc_",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "current_tracking_status": {
+          "name": "current_tracking_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Shipping": {
+          "name": "Shipping",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Reporte_will": {
+      "name": "Reporte_will",
+      "schema": "",
+      "columns": {
+        "revision_f1": {
+          "name": "revision_f1",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "asignadof1": {
+          "name": "asignadof1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rechazado": {
+          "name": "rechazado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof1": {
+          "name": "revisadof1",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisadof2": {
+          "name": "revisadof2",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Reporte_will_2": {
+      "name": "Reporte_will_2",
+      "schema": "",
+      "columns": {
+        "Asignado": {
+          "name": "Asignado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Total": {
+          "name": "Total",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Desaprobados": {
+          "name": "Desaprobados",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Aprovado": {
+          "name": "Aprovado",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Fecha": {
+          "name": "Fecha",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tabla_evelyn": {
+      "name": "tabla_evelyn",
+      "schema": "",
+      "columns": {
+        "order_id": {
+          "name": "order_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sku": {
+          "name": "sku",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gmv": {
+          "name": "gmv",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs": {
+          "name": "cogs",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "full_feed": {
+          "name": "full_feed",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neto": {
+          "name": "neto",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_entrega": {
+          "name": "fecha_entrega",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tabla_evelyn_full": {
+      "name": "tabla_evelyn_full",
+      "schema": "",
+      "columns": {
+        "order_id": {
+          "name": "order_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sku": {
+          "name": "sku",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gmv": {
+          "name": "gmv",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cogs": {
+          "name": "cogs",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "full_feed": {
+          "name": "full_feed",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neto": {
+          "name": "neto",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_entrega": {
+          "name": "fecha_entrega",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "walmart_departments": {
+      "name": "walmart_departments",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "department": {
+          "name": "department",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "super_department_number": {
+          "name": "super_department_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "super_department_name": {
+          "name": "super_department_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "super_departments_id": {
+          "name": "super_departments_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "update_at": {
+          "name": "update_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "walmart_id": {
+      "name": "walmart_id",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "provider_upc": {
+          "name": "provider_upc",
+          "type": "varchar(14)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp": {
+          "name": "timestamp",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "walmart_id_provider_upc_provider_upc_id_fk": {
+          "name": "walmart_id_provider_upc_provider_upc_id_fk",
+          "tableFrom": "walmart_id",
+          "tableTo": "provider_upc",
+          "columnsFrom": [
+            "provider_upc"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "walmart_top_products": {
+      "name": "walmart_top_products",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "department_id": {
+          "name": "department_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category_name": {
+          "name": "category_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sub_category_name": {
+          "name": "sub_category_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "product_name": {
+          "name": "product_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_two_day_eligible": {
+          "name": "is_two_day_eligible",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total_offers": {
+          "name": "total_offers",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "isbn": {
+          "name": "isbn",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issn": {
+          "name": "issn",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "exists_for_seller": {
+          "name": "exists_for_seller",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "name": "rank",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "brand": {
+          "name": "brand",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "update_at": {
+          "name": "update_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "walmart_top_products_department_id_walmart_departments_id_fk": {
+          "name": "walmart_top_products_department_id_walmart_departments_id_fk",
+          "tableFrom": "walmart_top_products",
+          "tableTo": "walmart_departments",
+          "columnsFrom": [
+            "department_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
