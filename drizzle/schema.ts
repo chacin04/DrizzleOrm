@@ -1,309 +1,107 @@
-import { pgTable, foreignKey, serial, integer, varchar, numeric, date, text, doublePrecision, boolean, timestamp, bigint, unique, real } from "drizzle-orm/pg-core"
-import { relations, sql } from "drizzle-orm"
+import { pgTable, text, serial, integer, doublePrecision, date, varchar, foreignKey, timestamp, unique, real, boolean, numeric } from "drizzle-orm/pg-core"
+  import { sql } from "drizzle-orm"
 
 
 
-export const f1 = pgTable("f1", {
+export const dimenciones3 = pgTable("dimenciones3", {
+	asin: text("asin"),
+	height: text("height_"),
+	length: text("length_"),
+	width: text("width_"),
+	weight: text("weight_"),
+	packQuantity: text("pack_quantity_"),
+	id: serial("id").primaryKey().notNull(),
+});
+
+export const upcAsing2 = pgTable("upc_asing2", {
+	asin: text("asin"),
+	upc: text("upc"),
+	id: serial("id").primaryKey().notNull(),
+});
+
+export const statusWaiting = pgTable("status_waiting", {
+	id: serial("id").primaryKey().notNull(),
+	itemNumber: text("item_number"),
+	productName: text("product_name"),
+	upcDis: text("upc_dis"),
+	units: integer("units"),
+	casePricelist: integer("case_pricelist"),
+	unitCost: doublePrecision("unit_cost"),
+	total: doublePrecision("total"),
+	productNotes: text("product_notes"),
+	supplier: text("supplier"),
+	purchasedCase: integer("purchased_case"),
+	unitsConfirmadas: integer("units_confirmadas"),
+	unitCostConfirm: doublePrecision("unit_cost_confirm"),
+	status: text("Status"),
+	porcentajeConfirmacion: doublePrecision("porcentaje_confirmacion"),
+	fechaEmision: date("fecha_emision"),
+	fechaConfirmacion: date("fecha_confirmacion"),
+	ftl: integer("ftl"),
+	orderType: text("order_type"),
+	sku: text("sku"),
+	poNumberId: text("po_number_id"),
+	walmartId: text("walmart_id"),
+	totalUnitCostConfir: doublePrecision("total_unit_cost_confir"),
+	fechaDeSalida: date("fecha_de_salida"),
+	idSW: text("id_s_w").notNull(),
+	porsentaje: integer("porsentaje"),
+});
+
+export const comparacion = pgTable("comparacion", {
 	id: serial("id_").primaryKey().notNull(),
-	idUsuario: integer("id_usuario").notNull().references(() => compradores.id),
-	idPricelist: integer("id_pricelist").notNull().references(() => compradores.id),
-	distribuidor: varchar("distribuidor"),
-	linkRentabilidad: varchar("link_rentabilidad"),
-	productoLinkWalmart: varchar("producto_link_walmart"),
-	description: varchar("description"),
-	linkAmazon: varchar("link_amazon"),
+	brand: varchar("brand"),
+	category: varchar("category"),
+	competitorPrice: varchar("competitor_price"),
+	competitorShippingPrice: varchar("competitor_shipping_price"),
+	competitorTotalPrice: varchar("competitor_total_price"),
+	walmartItemId: varchar("walmart_item_id"),
+	asin: varchar("asin"),
+	buyBoxPrice: varchar("buy_box_price"),
+	itemPrice: varchar("item_price"),
+	shippingPrice: varchar("shipping_price"),
+	walmartUrl: varchar("walmart_url"),
+	amazonUrl: varchar("amazon_url"),
+	gtin: varchar("gtin"),
 	upc: varchar("upc"),
-	upcListing: varchar("upc_listing"),
-	walmartId: varchar("walmart_id"),
-	pack: integer("pack"),
-	packPrice: numeric("pack_price", { precision: 3, scale: 2 }),
-	itemNumber: varchar("item_number"),
-	buyBoxPrice: numeric("buy_box_price", { precision: 3, scale: 2 }),
-	totalGrosFees: numeric("total_gros_fees", { precision: 3, scale: 2 }),
-	category: varchar("category"),
-	hazmat: varchar("hazmat"),
-	weight: numeric("weight", { precision: 3, scale: 2 }),
-	length: numeric("length_", { precision: 3, scale: 2 }),
-	width: numeric("width", { precision: 3, scale: 2 }),
-	height: numeric("height", { precision: 3, scale: 2 }),
-	lb: numeric("lb", { precision: 3, scale: 2 }),
-	unitNet: numeric("unit_net", { precision: 3, scale: 2 }),
-	roi: numeric("roi", { precision: 3, scale: 2 }),
-	margin: numeric("margin", { precision: 3, scale: 2 }),
-	netPorcentaje: numeric("net_porcentaje", { precision: 3, scale: 2 }),
-	walmartSalesDataSpark: numeric("walmart_sales_data_spark", { precision: 3, scale: 2 }),
-	amazonSales: numeric("amazon_sales", { precision: 3, scale: 2 }),
-	reviewsTotales: integer("reviews_totales"),
-	competitiveWfsSellers: integer("competitive_wfs_sellers"),
-	notes: varchar("notes"),
-	approval: varchar("approval"),
-	disapproval: varchar("disapproval"),
-	fulfillmentFee: numeric("fulfillment_fee", { precision: 3, scale: 2 }),
-	referralFee: numeric("referral_fee", { precision: 3, scale: 2 }),
-	cost: numeric("cost_", { precision: 3, scale: 2 }),
-	monthlyStore: numeric("monthly_store", { precision: 3, scale: 2 }),
-	fecha: date("fecha"),
+	isbn: varchar("isbn"),
+	ean: varchar("ean"),
+	potentialSales: varchar("potential_sales"),
+	wfsFulfillment: varchar("wfs_fulfillment"),
+	seasonality: varchar("seasonality"),
+	itemName: varchar("Item Name"),
 });
 
-export const f2 = pgTable("f2", {
+export const notaRestock = pgTable("nota_restock", {
 	id: serial("id").primaryKey().notNull(),
-	idF1: integer("id_f1").references(() => f1.id),
-	idUsuario: integer("id_usuario").references(() => compradores.id),
-	productoLinkWalmart: varchar("producto_link_walmart"),
-	linkAmazon: varchar("link_amazon"),
-	description: varchar("description"),
-	upcDist: varchar("upc_dist"),
-	walmartId: varchar("walmart_id"),
-	pack: integer("pack"),
-	itemNumber: varchar("item_number"),
-	buyBoxPrice: numeric("buy_box_price", { precision: 3, scale: 2 }),
-	packPrice: numeric("pack_price", { precision: 3, scale: 2 }),
-	cost: numeric("cost_", { precision: 3, scale: 2 }),
-	costFees: numeric("cost_fees", { precision: 3, scale: 2 }),
-	category: varchar("category"),
-	totalCost: numeric("total_cost", { precision: 3, scale: 2 }),
-	totalSales: numeric("total_sales", { precision: 3, scale: 2 }),
-	net: numeric("net", { precision: 3, scale: 2 }),
-	unitNet: numeric("unit_net", { precision: 3, scale: 2 }),
-	roi: numeric("roi", { precision: 3, scale: 2 }),
-	margin: numeric("margin", { precision: 3, scale: 2 }),
-	netPorcentaje: numeric("net_porcentaje", { precision: 3, scale: 2 }),
-	discount: numeric("discount", { precision: 3, scale: 2 }),
-	discountPorcentaje: numeric("discount_porcentaje", { precision: 3, scale: 2 }),
-	discountPackPrice: numeric("discount_pack_price", { precision: 3, scale: 2 }),
-	walmartSalesHelium: numeric("walmart_sales_helium", { precision: 3, scale: 2 }),
-	walmartSalesDataspark: numeric("walmart_sales_dataspark", { precision: 3, scale: 2 }),
-	reviews: numeric("reviews", { precision: 3, scale: 2 }),
-	competitiveWfsSellers: integer("competitive_wfs_sellers"),
-	amazonSalesAsinzen: numeric("amazon_sales_asinzen", { precision: 3, scale: 2 }),
-	amazonSalesKeppa: numeric("amazon_sales_keppa", { precision: 3, scale: 2 }),
-	buyBoxAmazon: numeric("buy_box_amazon", { precision: 3, scale: 2 }),
-	salesToBuy: numeric("sales_to_buy", { precision: 3, scale: 2 }),
-	unitsToBuy: numeric("units_to_buy", { precision: 3, scale: 2 }),
-	buyboxPorcentaje: numeric("buybox_porcentaje", { precision: 3, scale: 2 }),
-	stockDays: integer("stock_days"),
-	stockChecker: integer("stock_checker"),
-	timeMonths: integer("time_months"),
-	salesMonths: integer("sales_months"),
-	comments: varchar("comments_"),
-	notasFiltro1: varchar("notas_filtro_1"),
-	notaComprasFiltro2: varchar("nota_compras_filtro_2"),
-	approval: varchar("approval"),
-	disapproval: varchar("disapproval"),
-	lb: numeric("lb", { precision: 3, scale: 2 }),
-	fulfillmentFee: numeric("fulfillment_fee", { precision: 3, scale: 2 }),
-	referralFee: integer("referral_fee"),
-	costAux: numeric("cost_aux", { precision: 3, scale: 2 }),
-	monthlyStore: numeric("monthly_store", { precision: 3, scale: 2 }),
-	casePack: integer("case_pack"),
-	upcListing: varchar("upc_listing"),
-	fecha: date("fecha"),
-	supplier: varchar("supplier"),
-	descriptionProduct: varchar("description_product"),
-	weight: numeric("weight", { precision: 3, scale: 2 }),
-	length: numeric("length_", { precision: 3, scale: 2 }),
-	width: numeric("width", { precision: 3, scale: 2 }),
-	height: numeric("height", { precision: 3, scale: 2 }),
-	idUnico: varchar("id_unico"),
-	hazmat: varchar("hazmat"),
+	nota: text("nota"),
 });
 
-export const f3 = pgTable("f3", {
+export const statusRestock = pgTable("status_restock", {
 	id: serial("id").primaryKey().notNull(),
-	idF2: integer("id_f2").notNull().references(() => f2.id),
-	idUsuario: integer("id_usuario").notNull().references(() => compradores.id),
-	supplier: varchar("supplier"),
-	productoLinkWalmart: varchar("producto_link_walmart"),
-	linkAmazon: varchar("link_amazon"),
-	description: varchar("description"),
-	walmartId: integer("walmart_id"),
-	pack: integer("pack"),
-	itemNumber: varchar("item_number"),
-	upcDist: varchar("upc_dist"),
-	buyBoxPrice: numeric("buy_box_price", { precision: 3, scale: 2 }),
-	unitCost: numeric("unit_cost", { precision: 3, scale: 2 }),
-	totalCostWalmartFees: numeric("total_cost_walmart_fees", { precision: 3, scale: 2 }),
-	category: varchar("category"),
-	applyDiscount: varchar("apply_discount"),
-	totalCost: numeric("total_cost", { precision: 3, scale: 2 }),
-	totalSales: numeric("total_sales", { precision: 3, scale: 2 }),
-	unitDiscount: numeric("unit_discount", { precision: 3, scale: 2 }),
-	discountPackPrice: numeric("discount_pack_price", { precision: 3, scale: 2 }),
-	net: numeric("net", { precision: 3, scale: 2 }),
-	unitNet: numeric("unit_net", { precision: 3, scale: 2 }),
-	roi: numeric("roi", { precision: 3, scale: 2 }),
-	margin: numeric("margin", { precision: 3, scale: 2 }),
-	netPorcentaje: numeric("net_porcentaje", { precision: 3, scale: 2 }),
-	discountPorcentaje: numeric("discount_porcentaje", { precision: 3, scale: 2 }),
-	walmartSalesHelium: integer("walmart_sales_helium"),
-	walmartSalesDataSpark: integer("walmart_sales_data_spark"),
-	reviews: integer("reviews"),
-	competitiveWfsSellers: integer("competitive_wfs_sellers"),
-	amazonSalesAsinzen: integer("amazon_sales_asinzen"),
-	amazonSalesKeppa: varchar("amazon_sales_keppa"),
-	buyBoxAmazon: numeric("buy_box_amazon", { precision: 3, scale: 2 }),
-	unitsToBuy: numeric("units_to_buy", { precision: 3, scale: 2 }),
-	salesToBuy: numeric("sales_to_buy", { precision: 3, scale: 2 }),
-	buyboxPorcentaje: numeric("buybox_porcentaje", { precision: 3, scale: 2 }),
-	stockDays: integer("stock_days"),
-	stockCheckerVentas: integer("stock_checker_ventas"),
-	timeMonths: integer("time_months"),
-	salesMonths: integer("sales_months"),
-	comments: varchar("comments_"),
-	notaCompras: varchar("nota_compras"),
-	notaComprasF2: varchar("nota_compras_f2"),
-	notas: varchar("notas"),
-	approval: varchar("approval"),
-	disapproval: varchar("disapproval"),
-	lb: numeric("lb", { precision: 3, scale: 2 }),
-	hazmat: varchar("hazmat"),
-	fulfillmentFee: numeric("fulfillment_fee", { precision: 3, scale: 2 }),
-	referralFee: numeric("referral_fee", { precision: 4, scale: 2 }),
-	cost: numeric("cost_", { precision: 3, scale: 2 }),
-	monthlyStore: numeric("monthly_store", { precision: 5, scale: 5 }),
-	casePack: integer("case_pack"),
-	upcListing: varchar("upc_listing"),
-	descriptionProduct: varchar("description_product"),
-	lbFiltro1: numeric("lb_filtro_1", { precision: 3, scale: 2 }),
-	length: numeric("length_", { precision: 3, scale: 2 }),
-	width: numeric("width_", { precision: 3, scale: 2 }),
-	height: numeric("height_", { precision: 3, scale: 2 }),
-	timestampAproval: varchar("timestamp_aproval"),
-	idAsin: varchar("id_asin"),
-	idItemNumber: varchar("id_item_number"),
-	responsableF1: varchar("responsable_f1"),
-	inventario: varchar("inventario"),
+	status: text("status"),
+});
+
+export const pricelistFormateadas = pgTable("pricelist_formateadas", {
+	id: serial("id").primaryKey().notNull(),
+	upc: text("upc"),
+	descripcion: text("descripcion"),
+	unitPrice: doublePrecision("unit_price"),
+	case: integer("case_"),
+	itemNum: text("item_num"),
+	discountPorsentaje: doublePrecision("discount_porsentaje"),
+	discountPrice: doublePrecision("discount_price"),
+	moq: integer("moq"),
+	display: integer("display"),
+	proveedores: integer("proveedores").references(() => proveedores.id),
+	fechaActualizado: date("fecha_actualizado"),
+	fechaCreada: date("fecha_creada"),
 });
 
 export const imagen2 = pgTable("imagen2", {
 	id: serial("id").primaryKey().notNull(),
 	sku: text("sku_").references(() => inventory2.sku),
 	imagenUrl: text("imagen_url"),
-});
-
-
-
-export const infoproveedor = pgTable("infoproveedor", {
-	id: serial("id").primaryKey().notNull(),
-	proveedor: text("proveedor"),
-	streetAddress: text("street_address"),
-	responsable: text("responsable"),
-	city: text("city"),
-	phone: text("phone"),
-	mail: text("mail"),
-	idproveedor: integer("idproveedor").references(() => proveedores.id),
-});
-
-export const enProceso = pgTable("en_proceso", {
-	id: serial("id").primaryKey().notNull(),
-	upcProveedor: varchar("upc_proveedor", { length: 14 }).references(() => providerUpc.id),
-	nombre: varchar("nombre", { length: 25 }),
-	título: varchar("título"),
-	precio: doublePrecision("precio"),
-	asignadof1: varchar("asignadof1", { length: 25 }),
-	fechaasignado: date("fechaasignado"),
-	revisadof1: boolean("revisadof1"),
-	revisadof2: boolean("revisadof2"),
-	revisadof3: boolean("revisadof3"),
-	emisión: boolean("emisión"),
-	rechazado: varchar("rechazado", { length: 25 }),
-	comprado: boolean("comprado"),
-	mostrar: varchar("mostrar", { length: 25 }),
-	precioDeWalmart: doublePrecision("precio_de_walmart"),
-	precioAmazon: doublePrecision("precio_amazon"),
-	contracCategory: text("contrac_category"),
-	competidoresWalmartWfs: integer("competidores_walmart_wfs"),
-	fullfimentFee: doublePrecision("fullfiment_fee"),
-	referealFee: doublePrecision("refereal_fee"),
-	netoProbable: doublePrecision("neto_probable"),
-	idProveedor: integer("id_proveedor").references(() => proveedores.id),
-	walmarid: text("walmarid"),
-	asin: text("asin"),
-	packageheight: doublePrecision("packageheight"),
-	packagelength: doublePrecision("packagelength"),
-	packagewidth: doublePrecision("packagewidth"),
-	packageweight: doublePrecision("packageweight"),
-	notas: text("notas"),
-	cantidadComprar: integer("cantidad_comprar"),
-	hazmant: boolean("hazmant"),
-	apperel: boolean("apperel"),
-	bestseller: boolean("bestseller"),
-	popularpick: boolean("popularpick"),
-	case: integer("case_"),
-	itemNumber: text("item_number"),
-	revisionF1: timestamp("revision_f1", { mode: 'string' }).defaultNow(),
-	revisionF2: timestamp("revision_f2", { mode: 'string' }),
-	revisionF3: timestamp("revision_f3", { mode: 'string' }),
-	revisionEmision: timestamp("revision_emision", { mode: 'string' }),
-	asignadof2: varchar("asignadof2", { length: 25 }),
-	pack: integer("pack").default(1),
-	revisionInventario: timestamp("revision_inventario", { withTimezone: true, mode: 'string' }),
-});
-
-export const enProcesoHistorial = pgTable("en_proceso_historial", {
-	id: serial("id").primaryKey().notNull(),
-	upcProveedor: varchar("upc_proveedor", { length: 14 }).references(() => providerUpc.id),
-	nombre: varchar("nombre", { length: 25 }),
-	título: varchar("título"),
-	precio: doublePrecision("precio"),
-	asignadof1: varchar("asignadof1", { length: 25 }),
-	fechaasignado: date("fechaasignado"),
-	revisadof1: boolean("revisadof1"),
-	revisadof2: boolean("revisadof2"),
-	revisadof3: boolean("revisadof3"),
-	emisión: boolean("emisión"),
-	rechazado: varchar("rechazado", { length: 25 }),
-	comprado: boolean("comprado"),
-	mostrar: varchar("mostrar", { length: 25 }),
-	precioDeWalmart: doublePrecision("precio_de_walmart"),
-	precioAmazon: doublePrecision("precio_amazon"),
-	contracCategory: text("contrac_category"),
-	competidoresWalmartWfs: integer("competidores_walmart_wfs"),
-	fullfimentFee: doublePrecision("fullfiment_fee"),
-	referealFee: doublePrecision("refereal_fee"),
-	netoProbable: doublePrecision("neto_probable"),
-	idProveedor: integer("id_proveedor").references(() => proveedores.id),
-	walmarid: text("walmarid"),
-	asin: text("asin"),
-	packageheight: doublePrecision("packageheight"),
-	packagelength: doublePrecision("packagelength"),
-	packagewidth: doublePrecision("packagewidth"),
-	packageweight: doublePrecision("packageweight"),
-	notas: text("notas"),
-	cantidadComprar: integer("cantidad_comprar"),
-	hazmant: boolean("hazmant"),
-	apperel: boolean("apperel"),
-	bestseller: boolean("bestseller"),
-	popularpick: boolean("popularpick"),
-	case: integer("case_"),
-	itemNumber: text("item_number"),
-	numberPio: text("number_pio"),
-	revisionF1: timestamp("revision_f1", { mode: 'string' }).defaultNow(),
-	revisionF2: timestamp("revision_f2", { mode: 'string' }),
-	revisionF3: timestamp("revision_f3", { mode: 'string' }),
-	revisionEmision: timestamp("revision_emision", { mode: 'string' }),
-	asignadof2: varchar("asignadof2", { length: 25 }),
-	pack: integer("pack"),
-	revisionInventario: timestamp("revision_inventario", { withTimezone: true, mode: 'string' }),
-});
-
-export const reporteWill = pgTable("Reporte_will", {
-	revisionF1: timestamp("revision_f1", { mode: 'string' }),
-	asignadof1: text("asignadof1"),
-	rechazado: text("rechazado"),
-	revisadof1: boolean("revisadof1"),
-	revisadof2: boolean("revisadof2"),
-});
-
-export const reporteWill2 = pgTable("Reporte_will_2", {
-	asignado: text("Asignado"),
-	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
-	total: bigint("Total", { mode: "number" }),
-	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
-	desaprobados: bigint("Desaprobados", { mode: "number" }),
-	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
-	aprovado: bigint("Aprovado", { mode: "number" }),
-	fecha: text("Fecha"),
 });
 
 export const prismaMigrations = pgTable("_prisma_migrations", {
@@ -317,60 +115,82 @@ export const prismaMigrations = pgTable("_prisma_migrations", {
 	appliedStepsCount: integer("applied_steps_count").default(0).notNull(),
 });
 
+export const preRestockStatusWaiting = pgTable("pre_restock_status_waiting", {
+	id: serial("id").primaryKey().notNull(),
+	fechaEmission: timestamp("fecha_emission", { mode: 'string' }),
+	comprador: text("comprador"),
+	walmartId: text("walmart_id"),
+	sku: text("sku_"),
+	statusProcesos: text("status_procesos"),
+	notaRestock: text("nota_restock"),
+	distribuidor: text("distribuidor"),
+	itemNumber: text("item_number"),
+	descripcion: text("descripcion"),
+	upcSupplier: text("upc_supplier"),
+	unitPrice: doublePrecision("unit_price"),
+	unitCostTotal: doublePrecision("unit_cost_total"),
+	packPrice: doublePrecision("pack_price"),
+	packPriceTotal: doublePrecision("pack_price_total"),
+	salesUnit: integer("sales_unit"),
+	salesPack: integer("sales_pack"),
+	idRestock: integer("id_restock"),
+	packQuiantity: integer("pack_quiantity"),
+	classificationCard: text("classification_card"),
+},
+(table) => {
+	return {
+		sku: foreignKey({
+			columns: [table.sku, table.sku],
+			foreignColumns: [inventory2.sku],
+			name: "sku"
+		}),
+		preRestockStatusWaitingIdRestockKey: unique("pre_restock_status_waiting_id_restock_key").on(table.idRestock),
+	}
+});
+
+export const calculadora = pgTable("calculadora", {
+	id: serial("id").primaryKey().notNull(),
+	walmartId: varchar("walmart_id"),
+	sku: varchar("sku"),
+	buyBoxReferencia: doublePrecision("buy_box_referencia"),
+	fullFeedReferencial: doublePrecision("full_feed_referencial"),
+	contraCategory: varchar("contra_category"),
+	buyBoxApi: doublePrecision("buy_box_api"),
+});
+
+export const fTable = pgTable("F_Table", {
+	id: serial("id").primaryKey().notNull(),
+	fulfilmentFee: doublePrecision("fulfilment_fee"),
+	sku: text("sku_").references(() => inventory2.sku),
+},
+(table) => {
+	return {
+		fTableSkuKey: unique("F_Table_sku__key").on(table.sku),
+	}
+});
 
 export const compradores = pgTable("compradores", {
 	id: serial("id").primaryKey().notNull(),
 	nombre: varchar("nombre"),
 	password: varchar("password", { length: 30 }),
 	usuario: varchar("usuario", { length: 255 }),
+	rolluser: varchar("rolluser").default('comprador'),
 },
-	(table) => {
-		return {
-			compradoresUsuarioKey: unique("compradores_usuario_key").on(table.usuario),
-		}
-	});
-
-export const inventory2His = pgTable("inventory2_his", {
-	status: text("status"),
-	upcSupplier: text("upc_supplier"),
-	gtin: text("gtin"),
-	sku: text("sku").notNull(),
-	description: text("description"),
-	itemId: text("item_id"),
-	pack: integer("pack"),
-	itemNumberSupplier: text("item_number_supplier"),
-	cogs: doublePrecision("cogs"),
-	cogsInPack: doublePrecision("cogs_in_pack"),
-	outboundShippingWeight: doublePrecision("outbound_shipping_weight"),
-	weightLb: doublePrecision("weight_lb"),
-	unitsConfirm: doublePrecision("units_confirm"),
-	unitsInWh: doublePrecision("units_in_wh"),
-	unitsInTransit: doublePrecision("units_in_transit"),
-	unitsToCharge: doublePrecision("units_to_charge"),
-	unitsInWm: doublePrecision("units_in_wm"),
-	packsInWm: doublePrecision("packs_in_wm"),
-	unitsReturned: doublePrecision("units_returned"),
-	unitsDamaged: doublePrecision("units_damaged"),
-	link: text("link_"),
-	linkAmazon: text("link_amazon"),
-	categoria: text("categoria"),
-	lengthIn: doublePrecision("length_in"),
-	widthIn: doublePrecision("width_in"),
-	heightIn: doublePrecision("height_in"),
-	totalCostFees: doublePrecision("total_cost_fees"),
-	estCommission: doublePrecision("est_commission"),
-	cogsFee: doublePrecision("cogs_fee"),
-	hazmat: text("hazmat"),
-	ohXProduct: doublePrecision("oh_x_product"),
-	stock: doublePrecision("stock"),
-	stockValues: doublePrecision("stock_values"),
-	fechaModificacion: date("fecha_modificacion"),
-	id: serial("id").primaryKey().notNull(),
+(table) => {
+	return {
+		compradoresUsuarioKey: unique("compradores_usuario_key").on(table.usuario),
+	}
 });
 
-export const pricelistAsiganacionF1 = pgTable("pricelist_asiganacion_f1", {
+export const infoproveedor = pgTable("infoproveedor", {
 	id: serial("id").primaryKey().notNull(),
-	idPricelistPagina: integer("id_pricelist_pagina").references(() => pricelistPagina.id),
+	proveedor: text("proveedor"),
+	streetAddress: text("street_address"),
+	responsable: text("responsable"),
+	city: text("city"),
+	phone: text("phone"),
+	mail: text("mail"),
+	idproveedor: integer("idproveedor").references(() => proveedores.id),
 });
 
 export const orderSales2 = pgTable("order_sales_2", {
@@ -398,13 +218,6 @@ export const orderSales2 = pgTable("order_sales_2", {
 	referalFeed: doublePrecision("referal_feed"),
 });
 
-export const walmartId = pgTable("walmart_id", {
-	id: serial("id").primaryKey().notNull(),
-	itemId: text("item_id").notNull(),
-	providerUpc: varchar("provider_upc", { length: 14 }).references(() => providerUpc.id),
-	timestamp: timestamp("timestamp", { mode: 'string' }).defaultNow(),
-});
-
 export const productPackage = pgTable("product_package", {
 	id: serial("id").primaryKey().notNull(),
 	idProviderUpc: varchar("id_provider_upc", { length: 14 }).notNull().references(() => providerUpc.id),
@@ -417,6 +230,152 @@ export const productPackage = pgTable("product_package", {
 	quantity: integer("quantity").notNull(),
 	size: text("size"),
 	timestamp: timestamp("timestamp", { mode: 'string' }).defaultNow().notNull(),
+});
+
+export const proveedores = pgTable("proveedores", {
+	id: serial("id").primaryKey().notNull(),
+	nombre: varchar("nombre"),
+	leadtime: integer("leadtime"),
+});
+
+export const refoundReturns2 = pgTable("refound_returns_2", {
+	id: serial("id").primaryKey().notNull(),
+	orderId: text("order_id"),
+	producName: text("produc_name"),
+	returnReason: text("return_reason"),
+	returnDate: date("return_date"),
+	currentSatatus: text("current_satatus"),
+	unit: integer("unit"),
+	po: text("po"),
+	poLine: integer("po_line"),
+	rma: text("rma"),
+	returnOrdenLine: integer("return_orden_line"),
+	fault: text("fault"),
+	deliveredDate: date("delivered_date"),
+	receivedScanDate: date("received_scan_date"),
+	disposition: text("disposition"),
+	itemCondition: text("item_condition"),
+	upc: text("upc_"),
+	currentTrackingStatus: text("current_tracking_status"),
+	shipping: doublePrecision("Shipping"),
+});
+
+export const wallysmarter = pgTable("wallysmarter", {
+	id: serial("id").primaryKey().notNull(),
+	walmarid: varchar("walmarid"),
+	buyboxCurrent: doublePrecision("buybox_current"),
+	fullFelmandFeed: doublePrecision("full_felmand_feed"),
+	brand: varchar("brand"),
+	supplierSku: varchar("supplier_sku"),
+	category: varchar("category"),
+	height: doublePrecision("height"),
+	length: doublePrecision("length_"),
+	width: doublePrecision("width"),
+	weight: doublePrecision("weight"),
+	packQuantity: integer("pack_quantity"),
+	type: varchar("type_"),
+	sales: integer("sales"),
+	aproveTeam: varchar("aprove_team"),
+	createdAt: date("created_at"),
+	updatedAt: timestamp("updated_at", { mode: 'string' }),
+	notaTeam: text("nota_team"),
+	partPrice: doublePrecision("part_price"),
+	wmOutOfStock90: boolean("wm_out_of_stock_90"),
+	variation: boolean("variation"),
+	margin: doublePrecision("margin"),
+	idDistributor: integer("id_distributor").notNull(),
+	meltable: boolean("meltable"),
+	lastDateUpdate: date("last_date_update"),
+	flagOl: boolean("flag_ol"),
+	upc: numeric("upc", { precision: 15, scale:  0 }),
+});
+
+export const walmartDepartments = pgTable("walmart_departments", {
+	id: integer("id").primaryKey().notNull(),
+	department: text("department").notNull(),
+	superDepartmentNumber: integer("super_department_number").notNull(),
+	superDepartmentName: text("super_department_name").notNull(),
+	superDepartmentsId: integer("super_departments_id").notNull(),
+	updateAt: timestamp("update_at", { mode: 'string' }).defaultNow(),
+});
+
+export const comprasSW = pgTable("compras_s_w", {
+	id: serial("id").primaryKey().notNull(),
+	itemNumber: text("item_number"),
+	productName: text("product_name"),
+	upc: text("upc"),
+	units: integer("units"),
+	cases: integer("cases"),
+	unitCost: doublePrecision("unit_cost"),
+	total: doublePrecision("total"),
+	idCount: integer("id_count"),
+	discount: doublePrecision("discount"),
+	productNotes: text("product_notes"),
+	clickCheckProduct: boolean("click_check_product"),
+	supplier: text("supplier"),
+	orderType: text("order_type"),
+	orderId: text("order_id"),
+	unitsXCase: integer("units_x_case"),
+	totalCostConfirmed: doublePrecision("total_cost_confirmed"),
+	unitsConfirmadas: integer("units_confirmadas"),
+	cambiosPrecio: doublePrecision("cambios_precio"),
+	otraInfo: text("otra_info"),
+	porcentajeConfirmacion: doublePrecision("porcentaje_confirmacion"),
+	fechaEnvio: date("fecha_envio"),
+	fechaConfirmacion: date("fecha_confirmacion"),
+	ftl: integer("ftl"),
+});
+
+export const walmartId = pgTable("walmart_id", {
+	id: serial("id").primaryKey().notNull(),
+	itemId: text("item_id").notNull(),
+	providerUpc: varchar("provider_upc", { length: 14 }).references(() => providerUpc.id),
+	timestamp: timestamp("timestamp", { mode: 'string' }).defaultNow(),
+});
+
+export const auth = pgTable("auth", {
+	id: serial("id").primaryKey().notNull(),
+	usuario: integer("usuario").notNull().references(() => compradores.id),
+	token: varchar("token_"),
+	fechaDeCreacion: timestamp("fecha_de_creacion", { mode: 'string' }),
+	available: boolean("available"),
+});
+
+export const providerUpc = pgTable("provider_upc", {
+	id: varchar("id", { length: 14 }).primaryKey().notNull(),
+	ean: varchar("ean", { length: 14 }),
+	upc: varchar("upc", { length: 14 }),
+	product: text("product"),
+	brand: text("brand"),
+	category: text("category"),
+	image: text("image"),
+	statusCode: integer("status_code"),
+	timestamp: timestamp("timestamp", { mode: 'string' }).defaultNow(),
+	gtin: varchar("gtin", { length: 14 }),
+});
+
+export const walmartTopProducts = pgTable("walmart_top_products", {
+	id: integer("id").primaryKey().notNull(),
+	departmentId: integer("department_id").notNull().references(() => walmartDepartments.id),
+	categoryName: text("category_name").notNull(),
+	subCategoryName: text("sub_category_name").notNull(),
+	productName: text("product_name").notNull(),
+	isTwoDayEligible: integer("is_two_day_eligible").notNull(),
+	totalOffers: integer("total_offers").notNull(),
+	isbn: text("isbn").notNull(),
+	issn: text("issn").notNull(),
+	existsForSeller: integer("exists_for_seller").notNull(),
+	rank: integer("rank").notNull(),
+	brand: text("brand").notNull(),
+	updateAt: timestamp("update_at", { mode: 'string' }).defaultNow(),
+});
+
+export const variaciones = pgTable("variaciones", {
+	id: serial("id").primaryKey().notNull(),
+	enInventario: text("en_inventario"),
+	variacion: text("variacion"),
+	variacionEnInventario: boolean("variacion_en_inventario"),
+	upc: varchar("upc"),
 });
 
 export const inventory2 = pgTable("inventory2", {
@@ -451,134 +410,51 @@ export const inventory2 = pgTable("inventory2", {
 	cogsFee: doublePrecision("cogs_fee"),
 	hazmat: text("hazmat"),
 	ohXProduct: doublePrecision("oh_x_product"),
-	stock: doublePrecision("stock"),
-	stockValues: doublePrecision("stock_values"),
 	brand: text("brand"),
+	packToCharge: doublePrecision("pack_to_charge"),
+	packInTransit: doublePrecision("pack_in_transit"),
+	packInWh: doublePrecision("pack_in_wh"),
+	packsConfirm: doublePrecision("packs_confirm"),
+	stockValuesWm: doublePrecision("stock_values_wm"),
+	stockValuesWh: doublePrecision("stock_values_wh"),
+	lastFtl: integer("last_ftl"),
+	packsAvailableToSell: integer("packs_available_to_sell"),
+	packInReservation: integer("pack_in_reservation"),
+	buybox: doublePrecision("buybox"),
+	vendedorCurrent: text("vendedor_current"),
+	fechaScrap: timestamp("fecha_scrap", { withTimezone: true, mode: 'string' }),
 });
 
-export const refoundReturns2 = pgTable("refound_returns_2", {
+export const relacionPricelistVsproviderUpc = pgTable("relacion_pricelistVSproviderUpc", {
 	id: serial("id").primaryKey().notNull(),
-	orderId: text("order_id"),
-	producName: text("produc_name"),
-	returnReason: text("return_reason"),
-	returnDate: date("return_date"),
-	currentSatatus: text("current_satatus"),
-	unit: integer("unit"),
-	po: text("po"),
-	poLine: integer("po_line"),
-	rma: text("rma"),
-	returnOrdenLine: integer("return_orden_line"),
-	fault: text("fault"),
-	deliveredDate: date("delivered_date"),
-	receivedScanDate: date("received_scan_date"),
-	disposition: text("disposition"),
-	itemCondition: text("item_condition"),
-	upc: text("upc_"),
-	currentTrackingStatus: text("current_tracking_status"),
-	shipping: doublePrecision("Shipping"),
+	idPricelist: integer("id_pricelist").references(() => pricelistFormateadas.id),
+	idProvedores: varchar("id_provedores").references(() => providerUpc.id),
 });
 
-export const tablaEvelyn = pgTable("tabla_evelyn", {
-	orderId: text("order_id"),
+export const restock = pgTable("restock", {
+	id: serial("id").primaryKey().notNull(),
+	inventoryId: text("inventory_id").references(() => inventory2.sku).references(() => inventory2.sku),
+	clasificacion: text("clasificacion"),
+	dosl: doublePrecision("dosl"),
+	velocitysales: doublePrecision("velocitysales"),
+	margin: doublePrecision("margin"),
+	asignado: integer("asignado").references(() => compradores.id),
+});
+
+export const notasManualRestock = pgTable("notas_manual_restock", {
+	id: serial("id").primaryKey().notNull(),
 	sku: text("sku"),
-	fechaCreacion: date("fecha_creacion"),
-	quantity: integer("quantity"),
-	gmv: doublePrecision("gmv"),
-	cogs: doublePrecision("cogs"),
-	fullFeed: doublePrecision("full_feed"),
-	neto: doublePrecision("neto"),
-	fechaEntrega: date("fecha_entrega"),
-});
-
-export const tablaEvelynFull = pgTable("tabla_evelyn_full", {
-	orderId: text("order_id"),
-	sku: text("sku"),
-	fechaCreacion: date("fecha_creacion"),
-	quantity: integer("quantity"),
-	gmv: doublePrecision("gmv"),
-	cogs: doublePrecision("cogs"),
-	fullFeed: doublePrecision("full_feed"),
-	neto: doublePrecision("neto"),
-	fechaEntrega: date("fecha_entrega"),
-});
-
-export const walmartDepartments = pgTable("walmart_departments", {
-	id: integer("id").primaryKey().notNull(),
-	department: text("department").notNull(),
-	superDepartmentNumber: integer("super_department_number").notNull(),
-	superDepartmentName: text("super_department_name").notNull(),
-	superDepartmentsId: integer("super_departments_id").notNull(),
-	updateAt: timestamp("update_at", { mode: 'string' }).defaultNow(),
-});
-
-export const proveedores = pgTable("proveedores", {
-	id: serial("id").primaryKey().notNull(),
-	nombre: varchar("nombre"),
-	descuento: doublePrecision("descuento"),
-});
-
-export const walmartTopProducts = pgTable("walmart_top_products", {
-	id: integer("id").primaryKey().notNull(),
-	departmentId: integer("department_id").notNull().references(() => walmartDepartments.id),
-	categoryName: text("category_name").notNull(),
-	subCategoryName: text("sub_category_name").notNull(),
-	productName: text("product_name").notNull(),
-	isTwoDayEligible: integer("is_two_day_eligible").notNull(),
-	totalOffers: integer("total_offers").notNull(),
-	isbn: text("isbn").notNull(),
-	issn: text("issn").notNull(),
-	existsForSeller: integer("exists_for_seller").notNull(),
-	rank: integer("rank").notNull(),
-	brand: text("brand").notNull(),
-	updateAt: timestamp("update_at", { mode: 'string' }).defaultNow(),
-});
-
-export const providerUpc = pgTable("provider_upc", {
-	id: varchar("id", { length: 14 }).primaryKey().notNull(),
-	ean: varchar("ean", { length: 14 }),
-	upc: varchar("upc", { length: 14 }),
-	product: text("product"),
-	brand: text("brand"),
-	category: text("category"),
-	image: text("image"),
-	statusCode: integer("status_code"),
-	timestamp: timestamp("timestamp", { mode: 'string' }).defaultNow(),
-	gtin: varchar("gtin", { length: 14 }),
-});
-
-export const fTable = pgTable("F_Table", {
-	id: serial("id").primaryKey().notNull(),
-	fulfilmentFee: doublePrecision("fulfilment_fee"),
-	referalFeed: doublePrecision("referal_feed"),
-	sku: text("sku_").references(() => inventory2.sku),
+	nota: text("nota"),
+	fecha: timestamp("fecha", { mode: 'string' }),
+	idComprador: integer("id_comprador").references(() => compradores.id),
+	nombreCompradores: text("nombre_compradores"),
 },
-	(table) => {
-		return {
-			fTableSkuKey: unique("F_Table_sku__key").on(table.sku),
-		}
-	});
-
-export const pricelistPagina = pgTable("pricelist_pagina", {
-	id: serial("id").primaryKey().notNull(),
-	upcProveedor: varchar("upc_proveedor", { length: 15 }).references(() => providerUpc.id),
-	nombre: varchar("nombre", { length: 25 }),
-	título: varchar("título"),
-	precio: doublePrecision("precio"),
-	asignadof1: varchar("asignadof1", { length: 25 }),
-	fechaasignado: date("fechaasignado"),
-	revisadof1: boolean("revisadof1"),
-	revisadof2: boolean("revisadof2"),
-	revisadof3: boolean("revisadof3"),
-	emisión: boolean("emisión"),
-	rechazado: varchar("rechazado", { length: 25 }),
-	comprado: boolean("comprado"),
-	revisionF1: date("revision_f1"),
-	revisionF2: date("revision_f2"),
-	revisionF3: date("revision_f3"),
-	revisionEmision: date("revision_emision"),
-	idProveedor: integer("id_proveedor").references(() => proveedores.id),
-	inventario: boolean("inventario"),
-	case: integer("case_"),
-	itemNumber: varchar("item_number"),
-	asignadof2: varchar("asignadof2", { length: 25 }),
+(table) => {
+	return {
+		sku: foreignKey({
+			columns: [table.sku, table.sku],
+			foreignColumns: [inventory2.sku],
+			name: "sku"
+		}),
+	}
 });
